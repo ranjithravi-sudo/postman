@@ -1,0 +1,15 @@
+{
+  "name": "holiday-verification-platform",
+  "version": "1.0.0",
+  "description": "Local web app to verify holiday messages for multiple CUs via mock POST API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "xlsx": "^0.18.5"
+  }
+}

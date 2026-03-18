@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holiday Message Verification</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Holiday Message Verification Platform</h1>
+    <p>Verify holiday messages for one or more CUs. Select a date and customers, then run.</p>
+  </header>
+
+  <main>
+    <section class="controls">
+      <div class="field-row">
+        <div class="field">
+          <label for="date">Holiday date</label>
+          <input type="date" id="date" required>
+        </div>
+        <div class="field">
+          <label for="time">Time</label>
+          <input type="time" id="time" value="11:10">
+        </div>
+      </div>
+      <div class="field customer-select">
+        <label>
+          <input type="checkbox" id="selectAll" aria-label="Select all customers">
+          Select all
+        </label>
+        <div id="customerList" class="customer-list"></div>
+      </div>
+      <div class="actions">
+        <button type="button" id="runBtn" disabled>Run verification</button>
+      </div>
+    </section>
+
+    <section class="results-section" id="resultsSection" hidden>
+      <h2>Results</h2>
+      <div class="results-summary" id="resultsSummary"></div>
+      <div class="table-wrap">
+        <table class="results-table" id="resultsTable">
+          <thead>
+            <tr>
+              <th>Customer</th>
+              <th>Status</th>
+              <th>Holiday message</th>
+              <th>Holiday message text</th>
+              <th>Transferred to agent</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="error" id="error" role="alert" hidden></section>
+    <section class="loading" id="loading" hidden>Running verification…</section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
