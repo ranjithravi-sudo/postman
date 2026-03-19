@@ -17,9 +17,11 @@ const BEARER_TOKEN_FILE = path.join(__dirname, 'bearer-token.txt');
 app.use(cors());
 
 /**
- * Read Bearer token from bearer-token.txt (first line, trimmed). Returns null if file missing or empty.
+ * Read Bearer token: env BEARER_TOKEN (for cloud deploy) or bearer-token.txt. Returns null if neither set.
  */
-function getBearerTokenFromFile() {
+function getBearerToken() {
+  const envToken = process.env.BEARER_TOKEN;
+  if (envToken && typeof envToken === 'string' && envToken.trim()) return envToken.trim();
   try {
     const content = fs.readFileSync(BEARER_TOKEN_FILE, 'utf8');
     const firstLine = content.split(/\r?\n/)[0];
@@ -298,7 +300,7 @@ app.post('/api/run', async (req, res) => {
     return res.status(400).json({ error: 'Request must include date (YYYY-MM-DD) and customerNames array.' });
   }
 
-  const bearerToken = (typeof uiToken === 'string' && uiToken.trim()) ? uiToken.trim() : getBearerTokenFromFile();
+  const bearerToken = (typeof uiToken === 'string' && uiToken.trim()) ? uiToken.trim() : getBearerToken();
 
   const result = loadCustomers();
   if (result.error) {
