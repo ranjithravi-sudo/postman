@@ -25,20 +25,7 @@ A local web app for support engineers to verify holiday messages across multiple
 
 4. Open **http://localhost:3000** in your browser.
 
-5. **Bearer token:** Copy `bearer-token.example.txt` to `bearer-token.txt` and paste your API token on the first line. The app uses it for all verification requests. (On a deployed server you can set the `BEARER_TOKEN` environment variable instead.)
-
-## Public URL (deploy so everyone can access)
-
-To get a **public URL** (e.g. `https://holiday-verification-xxx.onrender.com`) so others can use the dashboard without running it locally:
-
-1. **Push your code to GitHub** (you already have `https://github.com/ranjithravi-sudo/postman`).
-2. **Sign up at [Render.com](https://render.com)** (free tier available).
-3. **New → Web Service**, connect your GitHub account, and select the **postman** repo.
-4. Render will detect `render.yaml`. Use the defaults (Build: `npm install`, Start: `npm start`).
-5. In **Environment**, add a variable: **Key** `BEARER_TOKEN`, **Value** your API token (same as in `bearer-token.txt`).
-6. **Deploy**. When the build finishes, Render gives you a URL like `https://holiday-verification-xxxx.onrender.com` — share that so anyone can open the dashboard.
-
-**Note:** The Excel file `postman api.xlsx` in the repo will be used on the server. If it contains sensitive URLs, consider a private repo or removing it and uploading via a different mechanism. Free-tier services may spin down after inactivity; the first visit after a while can be slow.
+5. **Bearer token:** Copy `bearer-token.example.txt` to `bearer-token.txt` and paste your API token on the first line. The app uses it for all verification requests.
 
 ## Usage
 
